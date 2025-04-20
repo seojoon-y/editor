@@ -432,7 +432,7 @@ function SidebarProjectApp( editor ) {
 
 	// Load URL
 
-	const loadURLButton = new UIButton( strings.getKey( 'sidebar/project/app/loadurl' ) );
+	/*const loadURLButton = new UIButton( strings.getKey( 'sidebar/project/app/loadurl' ) );
 	loadURLButton.setWidth( '170px' );
 	loadURLButton.setMarginLeft( '120px' );
 	loadURLButton.setMarginBottom( '10px' );
@@ -614,7 +614,7 @@ function SidebarProjectApp( editor ) {
 
 	} );
 
-	container.add( loadURLButton );
+	container.add( loadURLButton );*/
 
 	// Publish
 
