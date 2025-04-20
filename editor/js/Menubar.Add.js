@@ -238,26 +238,6 @@ function MenubarAdd( editor ) {
 	} );
 	options.add( option );
 
-	//monkey
-
-	option = new UIRow();
-	option.setClass( 'option' );
-	option.setId('addMonkey');
-	option.setTextContent( strings.getKey( 'menubar/add/monkey' ) );
-	option.onClick( function () {
-
-		const geometry = new THREE.OctahedronGeometry( 3, 1 );
-		const material = new THREE.MeshStandardMaterial();
-		const mesh = new THREE.Mesh( geometry, material );
-		mesh.name = 'Monkey';
-
-		mesh.userData.CustomTexture = [ 'hex', '0000ff', 0.8 ];
-		mesh.userData.effects = {"use": NaN,"drift": false,"jump": false,"jh": NaN,"js": NaN,"turn": NaN,"speed": NaN,"dx": NaN,"dy": NaN,"dz": NaN,"sl": false,"sr": NaN,"id": NaN,"mx": NaN,"my": NaN,"mz": NaN,"rx": NaN,"ry": NaN,"rz": NaN,"gx": NaN,"gy": NaN,"gz": NaN,"bou": NaN,"mass": NaN,"fr": NaN,"air": false,"topr": NaN,"k": false,"d": NaN,"eye": NaN,"fov": NaN,"tx": NaN,"ty": NaN,"tz": NaN,"cd": NaN,"cr": NaN,"msg": NaN,"br": NaN,"bg": NaN,"amb": NaN,"dif": NaN,"spe": NaN,"gro": NaN};
-		editor.execute( new AddObjectCommand( editor, mesh ) );
-
-	} );
-	options.add( option );
-
 	// arrow
 
 	option = new UIRow();
