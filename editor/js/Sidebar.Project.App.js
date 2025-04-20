@@ -575,13 +575,13 @@ function SidebarProjectApp( editor ) {
 
 	                        mesh.scale.x = scaleX / 100;
 	                        mesh.scale.y = scaleY / 100;
-	                        mesh.scale.y = scaleZ / 100;
+	                        mesh.scale.z = scaleZ / 100;
 
 			} else {
 
 				mesh.scale.x = scaleX / 100;
 	                        mesh.scale.y = scaleZ / 100;
-	                        mesh.scale.y = scaleY / 100;
+	                        mesh.scale.z = scaleY / 100;
 
 			}
 
