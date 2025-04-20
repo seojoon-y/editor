@@ -428,8 +428,6 @@ function SidebarProjectApp( editor ) {
 
 	}
 
-	
-
 	// Publish
 
 	const publishButton = new UIButton( strings.getKey( 'sidebar/project/app/publish' ) );
