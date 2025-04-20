@@ -11,7 +11,6 @@ function Config() {
 
 		'autosave': true,
 
-		'project/title': 'Untitled Ice Dodo Map',
 		'project/editable': false,
 		'project/vr': false,
 
