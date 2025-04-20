@@ -494,18 +494,19 @@ function SidebarProjectApp( editor ) {
 					mesh.scale.x = 1000;
 					break;
 				case 'B':
-					geometry = new THREE.BoxGeometry( 1, 1, 1, 1, 1, 1 );
-					loader = new THREE.TextureLoader();
-					loader.load( 'images/textures/bright.png', function ( texture ) {
-
-						texture.colorSpace = THREE.SRGBColorSpace;
-						material = new THREE.MeshBasicMaterial( { map: texture } );
-						mesh = new THREE.Mesh( geometry, material );
-						mesh.name = 'Box';
-						mesh.userData.CustomTexture = [ 'images/textures/bright.png' ];
-
-					} );
-					break;
+  					geometry = new THREE.BoxGeometry( 1, 1, 1, 1, 1, 1 );
+  					loader = new THREE.TextureLoader();
+  					return new Promise((resolve, reject) => {
+    						loader.load( 'images/textures/bright.png', function ( texture ) {
+      							texture.colorSpace = THREE.SRGBColorSpace;
+      							material = new THREE.MeshBasicMaterial( { map: texture } );
+      							mesh = new THREE.Mesh( geometry, material );
+      							mesh.name = 'Box';
+      							mesh.userData.CustomTexture = [ 'images/textures/bright.png' ];
+      							resolve(mesh);
+    						}, undefined, reject);
+					});
+  				break;
 				case 'C':
 					geometry = new THREE.ConeGeometry( .5, 1, 16 );
 					material = new THREE.MeshBasicMaterial( { color: 0xD52B2B } );
