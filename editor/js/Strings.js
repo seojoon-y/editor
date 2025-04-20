@@ -401,7 +401,7 @@ function Strings( config ) {
 			'sidebar/script/edit': 'Edit',
 			'sidebar/script/remove': 'Remove',
 
-			'sidebar/project': 'Project',
+			'sidebar/project': 'Monkey',
 			'sidebar/project/antialias': 'Antialias',
 			'sidebar/project/shadows': 'Shadows',
 			'sidebar/project/toneMapping': 'Tonemapping',
