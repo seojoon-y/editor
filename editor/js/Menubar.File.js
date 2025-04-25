@@ -175,6 +175,14 @@ function MenubarFile( editor ) {
 			editor.utils.save( blob, 'project.json' );
 
 		} );
+	
+	// Added by Jason.
+	window.addEventListener('message', (e) => {
+		const { endpoint, payload } = e.data;
+		if (endpoint != 'get_json') return;
+		const result = editor.toJSON();
+		window.parent.postMessage({ endpoint, payload: result }, '*')
+	})
 
 	options.add( option );
 
