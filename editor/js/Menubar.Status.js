@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-import { UIPanel, UIText } from './libs/ui.js';
+import { UIPanel, UIAnchor } from './libs/ui.js';
 import { UIBoolean } from './libs/ui.three.js';
 
 function MenubarStatus( editor ) {
@@ -39,9 +39,10 @@ function MenubarStatus( editor ) {
 
 	} );
 
-	const version = new UIText( 'DodoEditor Beta 0.1.0' );
+	const version = new UIAnchor( 'How to get started' );
 	version.setClass( 'title' );
 	version.setOpacity( 0.65 );
+	version.setHref( 'https://docs.google.com/document/d/1qv7PBwLh8m6FqIqtHme363KDS9KRoEMxF3haKg3ciR4' );
 	container.add( version );
 
 	return container;
