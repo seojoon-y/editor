@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-import { UIPanel, UIText } from './libs/ui.js';
+import { UIPanel, UIAnchor } from './libs/ui.js';
 import { UIBoolean } from './libs/ui.three.js';
 
 function MenubarStatus( editor ) {
