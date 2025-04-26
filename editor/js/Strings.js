@@ -50,7 +50,7 @@ function Strings( config ) {
 			'menubar/file/new/Pong': 'Pong',
 			'menubar/file/new/Shaders': 'Shaders',
 			'menubar/file/open': 'Open',
-			'menubar/file/save': 'Save',
+			'menubar/file/save': 'Download',
 			'menubar/file/import': 'Import',
 			'menubar/file/export': 'Export',
 
