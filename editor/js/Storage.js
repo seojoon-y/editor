@@ -89,6 +89,10 @@ function Storage() {
 
 			};
 
+		},
+
+		tellIframeParentThatSomethingChanged() {
+			window.parent.postMessage({ endpoint: 'something_changed' }, '*')
 		}
 
 	};

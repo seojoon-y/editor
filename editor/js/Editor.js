@@ -591,6 +591,7 @@ Editor.prototype = {
 	clear: function () {
 
 		this.history.clear();
+		this.storage.tellIframeParentThatSomethingChanged()
 
 		this.camera.copy( _DEFAULT_CAMERA );
 		this.signals.cameraResetted.dispatch();

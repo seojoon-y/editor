@@ -128,23 +128,19 @@
 
 				//
 
-				function saveState() {
-
-				}
-
 				const signals = editor.signals;
 
-				signals.geometryChanged.add( saveState );
-				signals.objectAdded.add( saveState );
-				signals.objectChanged.add( saveState );
-				signals.objectRemoved.add( saveState );
-				signals.materialChanged.add( saveState );
-				signals.sceneBackgroundChanged.add( saveState );
-				signals.sceneEnvironmentChanged.add( saveState );
-				signals.sceneFogChanged.add( saveState );
-				signals.sceneGraphChanged.add( saveState );
-				signals.scriptChanged.add( saveState );
-				signals.historyChanged.add( saveState );
+				signals.geometryChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.objectAdded.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.objectChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.objectRemoved.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.materialChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.sceneBackgroundChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.sceneEnvironmentChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.sceneFogChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.sceneGraphChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.scriptChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
+				signals.historyChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
 
 			} );
 
