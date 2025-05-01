@@ -132,12 +132,6 @@
 
 				function saveState() {
 
-					if ( editor.config.getKey( 'autosave' ) === false ) {
-
-						return;
-
-					}
-
 					clearTimeout( timeout );
 
 					timeout = setTimeout( function () {

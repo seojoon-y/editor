@@ -94,8 +94,6 @@ function Strings( config ) {
 			'menubar/add/camera/perspective': 'Perspective',
 			'menubar/add/camera/orthographic': 'Orthographic',
 
-			'menubar/status/autosave': 'autosave',
-
 			'menubar/view': 'View',
 			'menubar/view/fullscreen': 'Fullscreen',
 			'menubar/view/gridHelper': 'Grid',

@@ -9,8 +9,6 @@ function Config() {
 	const storage = {
 		'language': suggestedLanguage,
 
-		'autosave': true,
-
 		'project/editable': false,
 		'project/vr': false,
 
