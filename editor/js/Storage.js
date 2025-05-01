@@ -49,16 +49,18 @@ function Storage() {
 		},
 
 		get: function ( callback ) {
+			const hasParent = window.parent !== window
+			if (!hasParent) {
+				callback(undefined)
+				return
+			}
+			window.parent.postMessage({ endpoint: 'get_project_json' }, '*')
 
-			const transaction = database.transaction( [ 'states' ], 'readonly' );
-			const objectStore = transaction.objectStore( 'states' );
-			const request = objectStore.get( 0 );
-			request.onsuccess = function ( event ) {
-
-				callback( event.target.result );
-
-			};
-
+			window.addEventListener('message', (event) => {
+				if (event.data.endpoint !== 'get_project_json') return
+				const data = event.data.payload
+				callback(data)
+			})
 		},
 
 		set: function ( data ) {
