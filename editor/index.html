@@ -128,25 +128,7 @@
 
 				//
 
-				let timeout;
-
 				function saveState() {
-
-					clearTimeout( timeout );
-
-					timeout = setTimeout( function () {
-
-						editor.signals.savingStarted.dispatch();
-
-						timeout = setTimeout( function () {
-
-							editor.storage.set( editor.toJSON() );
-
-							editor.signals.savingFinished.dispatch();
-
-						}, 10 );
-
-					}, 10 );
 
 				}
 

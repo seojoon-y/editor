@@ -10,18 +10,6 @@ function MenubarStatus( editor ) {
 	const container = new UIPanel();
 	container.setClass( 'menu right' );
 
-	editor.signals.savingStarted.add( function () {
-
-		console.log('Saving started')
-
-	} );
-
-	editor.signals.savingFinished.add( function () {
-
-		console.log('Saving finished')
-
-	} );
-
 	/* commented out by Jason on Apr because UIAnchor does not exist
 	const version = new UIAnchor( 'How to get started' );
 	version.setClass( 'title' );

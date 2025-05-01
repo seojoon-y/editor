@@ -1129,9 +1129,6 @@ function SidebarEffects( editor ) {
 				spe: objectSpe.getValue(),
 				gro: objectGro.getValue(),
 			};
-			editor.storage.set( editor.toJSON() );
-	
-			editor.signals.savingFinished.dispatch();
 		}
 		lastObjectId = editor.selected.uuid;
 
