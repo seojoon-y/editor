@@ -207,16 +207,6 @@ function MenubarFile( editor ) {
 	} );
 	form.appendChild( fileInput );
 
-	option = new UIRow();
-	option.setClass( 'option' );
-	option.setTextContent( strings.getKey( 'menubar/file/import' ) );
-	option.onClick( function () {
-
-		fileInput.click();
-
-	} );
-	options.add( option );
-
 	// Export
 
 	const fileExportSubmenuTitle = new UIRow().setTextContent( strings.getKey( 'menubar/file/export' ) ).addClass( 'option' ).addClass( 'submenu-title' );

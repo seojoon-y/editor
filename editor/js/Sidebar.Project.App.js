@@ -113,7 +113,8 @@ function SidebarProjectApp( editor ) {
 
 	signals.editorCleared.add( function () {
 
-		title.setValue( '' );
+		// Jason 2025 May: commented out because it caused bug.
+		// title.setValue( '' );
 		config.setKey( 'project/title', '' );
 
 	} );

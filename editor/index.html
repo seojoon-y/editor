@@ -104,45 +104,36 @@
 
 			//
 
-			editor.storage.init( function () {
+			const signals = editor.signals;
 
-				editor.storage.get( async function ( state ) {
+			signals.geometryChanged.add( editor.tellIframeParentThatSomethingChanged );
+			signals.objectAdded.add( editor.tellIframeParentThatSomethingChanged );
+			signals.objectChanged.add( editor.tellIframeParentThatSomethingChanged );
+			signals.objectRemoved.add( editor.tellIframeParentThatSomethingChanged );
+			signals.materialChanged.add( editor.tellIframeParentThatSomethingChanged );
+			signals.sceneBackgroundChanged.add( editor.tellIframeParentThatSomethingChanged );
+			signals.sceneEnvironmentChanged.add( editor.tellIframeParentThatSomethingChanged );
+			signals.sceneFogChanged.add( editor.tellIframeParentThatSomethingChanged );
+			signals.sceneGraphChanged.add( editor.tellIframeParentThatSomethingChanged );
+			signals.scriptChanged.add( editor.tellIframeParentThatSomethingChanged );
+			signals.historyChanged.add( editor.tellIframeParentThatSomethingChanged );
 
-					if ( isLoadingFromHash ) return;
+			// Section added by Jason 2025 May
 
-					if ( state !== undefined ) {
+			window.addEventListener('message', async (event) => {
+				if (event.data.endpoint !== 'set_project_json_req') return
+				editor.clear();
+				await editor.fromJSON( event.data.payload );
+				console.log('req --> set_project_json --> res')
+				window.parent.postMessage({ endpoint: 'set_project_json_res' }, '*')
+			})
 
-						await editor.fromJSON( state );
-
-					}
-
-					const selected = editor.config.getKey( 'selected' );
-
-					if ( selected !== undefined ) {
-
-						editor.selectByUuid( selected );
-
-					}
-
-				} );
-
-				//
-
-				const signals = editor.signals;
-
-				signals.geometryChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.objectAdded.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.objectChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.objectRemoved.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.materialChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.sceneBackgroundChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.sceneEnvironmentChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.sceneFogChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.sceneGraphChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.scriptChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-				signals.historyChanged.add( editor.storage.tellIframeParentThatSomethingChanged );
-
-			} );
+			window.addEventListener('message', (event) => {
+				if (event.data.endpoint !== 'get_project_json_req') return
+				const payload = editor.toJSON()
+				console.log('req --> get_project_json --> res')
+				window.parent.postMessage({ endpoint: 'get_project_json_res', payload }, '*')
+			})
 
 			//
 
